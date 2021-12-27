@@ -102,16 +102,17 @@ function underlineP() {
 }
 
 underlineP();
-
-$('#recupValue').click(function () {
+let recupValue = $('#recupValue');
+recupValue.click(function () {
     console.log($('#firstInput').val());
 })
 
-function removeAllClass (element) {
+function removeAllClass(element) {
     element.removeClass();
 }
 
-removeAllClass($('#removeClass'));
+let removeClass = $('#removeClass');
+removeAllClass(removeClass);
 
 removeStyle.css("background", "");
 
@@ -132,40 +133,171 @@ body.keypress(function (event) {
     }
 })
 
-function returnLenghtTable () {
+function returnLenghtTable() {
     console.log($('#myTable tr').length);
 }
 
 returnLenghtTable();
 
-function returnValueTextArea () {
+function returnValueTextArea() {
     console.log($('#firstTextArea').val());
 }
 
 returnValueTextArea();
 
-function addRadioElement () {
+function addRadioElement() {
     $('#myForm').append('<input type="radio">');
 }
 
 addRadioElement();
 
-function returnPositionAbso () {
+function returnPositionAbso() {
     console.log($('#absolute').offset())
 }
 
 returnPositionAbso();
 
-function fullMaj (elem) {
+function fullMaj(elem) {
     elem.css('text-transform', 'uppercase');
 }
 
 fullMaj($('#fullMaj'));
 
-function modiftextArea () {
+function modiftextArea() {
     if ($('#firstTextArea').length >= 0) {
         alert('Le textArea à été modifié fripouille');
     }
 }
 
-modiftextArea();
+$('table tr').get(0).remove();
+
+function changeTextButton(text) {
+    recupValue.html(text);
+}
+
+changeTextButton('Log value');
+
+function addOption(text) {
+    $('#firstSelect').append(`<option>${text}</option>`);
+}
+
+addOption('A4A4A4');
+
+function backgroundElement(elem, color) {
+
+    elem.css('background', color);
+}
+
+backgroundElement($('div'), 'red');
+
+function allLineExceptFirst() {
+
+    $("#myTable").find("tr:gt(0)").remove();
+}
+
+allLineExceptFirst();
+
+function recupCurentValue() {
+    let select = $('#firstSelect').val();
+    console.log(select);
+}
+
+recupCurentValue();
+
+function disabledLink(monLien) {
+    monLien.click(function (event) {
+        event.preventDefault();
+    })
+}
+
+disabledLink($('#monLink'));
+
+removeClass.toggleClass('maClasse', 'red');
+
+$('#addStyle').addClass('red');
+
+function nbrChild() {
+
+    console.log("Nombre d'enfant du div #selected: " + $('#selected').children().length);
+}
+
+nbrChild();
+
+function onlyNumber() {
+    $("#firstTextArea").keyup(function (event) {
+        let value = $(this).val();
+        value = value.replace(/[^0-9\\.]+/g, '');
+        $(this).val(value);
+    });
+}
+
+onlyNumber();
+
+function checkedJquery() {
+    if ($) {
+        alert("La version de Jquery actuellement chargée est: 3.6.0")
+    }
+}
+
+
+function deleteLine() {
+    $("#myTable2").find("tr:gt(3)").remove();
+}
+
+deleteLine();
+
+function inputTextValue() {
+    $('#firstInput').val('Ma valeur add avec ma fonction');
+}
+
+inputTextValue();
+
+function defText(elem, text) {
+    elem.text(text);
+}
+
+defText($('#forFunctionDefText'), "Mon texte add avec la fonction");
+
+function returnClass (elem) {
+    elem.click(function () {
+        console.log("Mes classes sont: " + elem.attr('class'));
+    })
+}
+
+returnClass($('#returnClass'));
+
+function addHref (elem) {
+    elem.attr('href', 'https://google.com', 'https://google.com');
+}
+
+addHref($('#forFunctionAddHref'));
+
+function deleteDisabledAttr (elem) {
+    elem.removeAttr('disabled');
+}
+
+deleteDisabledAttr($('#myDisabledButton'));
+
+function returnWidth (elem) {
+    console.log(elem.width() + " px sans le padding et margin");
+
+}
+let width = $('#width')
+
+returnWidth(width);
+
+function animateElem (elem) {
+    elem.mouseover(function () {
+        width.animate({
+            width: "+=10%"
+        }, 10000);
+    })
+}
+
+animateElem(width);
+
+function addAttributeAndValue (elem, attribut, valeur) {
+    elem.attr(attribut, valeur);
+}
+
+addAttributeAndValue($('#lastConsigne'), 'href', 'https://google.com');

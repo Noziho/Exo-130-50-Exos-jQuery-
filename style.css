@@ -1,5 +1,6 @@
 .red {
-    color: red;
+    background: red;
+    color: white;
     font-size: 2rem;
 }
 
@@ -8,3 +9,8 @@ table {
 
 }
 
+#width {
+    height: 200px;
+    width: 200px;
+    padding: 2rem;
+}
